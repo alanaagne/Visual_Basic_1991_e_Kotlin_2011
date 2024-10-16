@@ -13,7 +13,6 @@ fun main() {
     println(listaCompras.selecionarItem(1))
     println(listaCompras.imprimir())
 
-    // Teste dos novos métodos
     listaCompras.adicionarItem(ItemCompra("Uva", 3))
     println(listaCompras.selecionarTodos())
     listaCompras.apagarTodos()
