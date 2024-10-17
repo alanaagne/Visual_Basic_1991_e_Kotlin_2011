@@ -1,0 +1,62 @@
+Usando a estrutura de dados Pilha, o código implementa uma pilha para armazenar livros a qual inicializa a pilha e permite adicionar livros ao topo além de permitir remover livros do topo e verificar se a pilha está vazia ou cheia
+
+
+
+Dim Pilha(10) As String ' Define um array para armazenar até 11 elementos (índices de 0 a 10)
+Dim Topo As Integer     ' Indica o topo da pilha
+
+Sub InicializarPilha() 
+    Topo = -1            ' Inicia o topo como -1, indica que a pilha está vazia
+End Sub 
+
+Sub Empilhar(Livro As String) 
+    If Topo < UBound(Pilha) Then ' Verifica se ainda há espaço na pilha
+        Topo = Topo + 1           ' Incrementa o topo
+        Pilha(Topo) = Livro        ' Adiciona o livro no topo
+        MsgBox "Livro '" & Livro & "  ' adicionado à pilha."  ' Exibe mensagem de confirmação
+    Else 
+        MsgBox "A pilha está cheia!" ' Exibe mensagem se a pilha estiver cheia
+    End If 
+End Sub 
+
+Function Desempilhar() As String 
+    If Topo >= 0 Then       ' Verifica se há livros para remover
+        Desempilhar = Pilha(Topo)  ' Retorna o livro no topo
+        Topo = Topo - 1            ' Decrementa o topo
+        MsgBox "Livro '" & Desempilhar & "' removido da pilha."  ' Exibe mensagem de remoção
+    Else 
+        MsgBox "A pilha está vazia!"  ' Exibe mensagem se a pilha estiver vazia
+    End If 
+End Function 
+
+Function EstaVazia() As Boolean 
+    EstaVazia = (Topo = -1) ' Retorna verdadeiro se o topo for -1, ou seja indica que a pilha está vazia
+End Function 
+
+Function EstaCheia() As Boolean 
+    EstaCheia = (Topo = UBound(Pilha)) ' Retorna verdadeiro se o topo for igual ao limite superior da pilha
+End Function 
+
+Function Espiar() As String 
+    If Topo >= 0 Then      ' Verifica se há livros na pilha
+        Espiar = Pilha(Topo) ' Retorna o livro no topo sem removê-lo
+    Else 
+        MsgBox "A pilha está vazia!" ' Exibe mensagem se a pilha estiver vazia
+    End If 
+End Function 
+
+Sub TestePilha() 
+    InicializarPilha          ' Inicializa a pilha
+    Empilhar "Livro A"       ' Adiciona "Livro A" à pilha
+    Empilhar "Livro B"       ' Adiciona "Livro B" à pilha
+    Empilhar "Livro C"       ' Adiciona "Livro C" à pilha
+
+    MsgBox "Livro no topo: " & Espiar()  ' Exibe o livro no topo
+    Desempilhar()            ' Remove o livro do topo
+    MsgBox "Livro no topo após remoção: " & Espiar()  ' Exibe o novo topo
+End Sub 
+
+
+' Portanto a saída do código será:
+' "Livro no topo: Livro C"
+' "Livro no topo após remoção: Livro B"

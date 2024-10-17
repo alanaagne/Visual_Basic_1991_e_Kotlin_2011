@@ -1,0 +1,78 @@
+' O código abaixo implementa uma fila simples que permite adicionar e remover elementos, demonstrando os conceitos básicos de uma estrutura de dados FIFO 
+
+
+Dim Fila(10) As String  ' Define um array para armazenar até 11 elementos (índices de 0 a 10)
+
+Dim Inicio As Integer   ' Indica o início da fila
+
+Dim Fim As Integer      ' Indica o fim da fila
+
+  
+
+Sub Main() 
+
+    Inicio = 0  ' Inicia o índice de início como 0
+
+    Fim = 0      ' Inicia o índice de fim como 0
+
+  
+
+    AdicionarFila "Elemento 1"   ' Adiciona o "Elemento 1" à fila
+
+    AdicionarFila "Elemento 2"   ' Adiciona o "Elemento 2" à fila
+
+    AdicionarFila "Elemento 3"   ' Adiciona o "Elemento 3" à fila
+
+  
+
+    MsgBox RemoverFila()    ' Remove e exibe o primeiro elemento da fila (Elemento 1)
+
+    MsgBox RemoverFila()    ' Remove e exibe o próximo elemento da fila (Elemento 2)
+
+End Sub 
+
+  
+
+Sub AdicionarFila(Elemento As String) 
+
+    If Fim < UBound(Fila) Then   ' Verifica se ainda há espaço na fila
+
+        Fila(Fim) = Elemento     ' Adiciona o elemento no índice 'Fim'
+        Fim = Fim + 1            ' Incrementa o índice 'Fim'
+
+    Else 
+
+        MsgBox "Fila cheia!"    ' Exibe mensagem se a fila estiver cheia
+
+    End If 
+
+End Sub 
+
+  
+
+Function RemoverFila() As String 
+
+    If Inicio < Fim Then   ' Verifica se há elementos para remover
+
+        RemoverFila = Fila(Inicio)   ' Retorna o elemento no índice 'Inicio
+
+        Inicio = Inicio + 1    ' Incrementa o índice 'Inicio'
+
+    Else 
+
+        MsgBox "Fila vazia!"   ' Exibe mensagem se a fila estiver vazia
+
+        RemoverFila = ""         ' Retorna uma string vazia
+
+    End If 
+
+End Function 
+
+' A saída final do código, será:
+
+'A primeira mensagem: "Elemento 1"
+'A segunda mensagem: "Elemento 2"
+
+Nesse caso o "Elemento 3" permanece na fila após essas operações, mas não é exibido porque não foi removido.
+
+ 

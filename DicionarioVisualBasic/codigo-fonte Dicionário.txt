@@ -1,0 +1,24 @@
+'O código abaixo, na estrutura de dados dicionário demonstra as principais operações que podem ser realizadas como: adicionar pares chave-valor, buscar valores, e remover pares.
+
+Sub TestarDicionario()
+    Call AdicionarDicionario("Nome", "Luzia") ' Adiciona o par chave-valor: Nome -> Luzia
+    Call AdicionarDicionario("Idade", "25")    ' Adiciona o par chave-valor: Idade -> 25
+    
+    Dim resultado As String                     ' Declara uma variável para armazenar o resultado da busca
+    
+    resultado = BuscarDicionario("Nome")       ' Busca o valor associado à chave "Nome"
+    MsgBox "Resultado da busca: " & resultado   ' Exibe o resultado da busca em uma mensagem
+    
+    Call RemoverDicionario("Nome")             ' Remove o par com a chave "Nome"
+    
+    resultado = BuscarDicionario("Nome")       ' Busca novamente o valor associado à chave "Nome"
+    MsgBox "Resultado da busca após remoção: " & resultado ' Exibe o resultado da busca após a remoção
+End Sub
+
+
+' Após a execução do programa será gerado as saídas 
+'Resultado da busca: Luzia
+'Resultado da busca após remoção: Chave não encontrada!
+'Na primeira saída: Resulta da busca pelo valor associado à chave "Nome", que é "Luzia".
+'Na segunda saída: Resulta da busca pelo mesmo valor após a remoção da chave "Nome", que agora não é mais encontrada no dicionário, resultando na mensagem "Chave não encontrada!"
+ 
